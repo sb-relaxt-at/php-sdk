@@ -273,6 +273,17 @@ class RealtyWrapper extends AbstractWrapper
                     $objekt->addAdditionalCosts($key, $costs);
                 }
             }
+
+            if (isset($xml->preise->miete)) {
+                $zusatzkosten = $xml->preise->miete[0];
+                $name = 'Miete';
+
+                $ust_berechneter_wert = ((double) $zusatzkosten->brutto) - ((double) $zusatzkosten->netto);
+
+                $costs = new AdditionalCosts((string) $name, (double) $zusatzkosten->brutto, (double) $zusatzkosten->netto, (double) $zusatzkosten->ust, (string) $zusatzkosten->ust_typ, (double) $ust_berechneter_wert, (double) $zusatzkosten->ust_wert);
+
+                $objekt->addAdditionalCosts('miete', $costs);
+            }
         }
 
         if (isset($xml->anhaenge) && isset($xml->anhaenge->anhang)) {
