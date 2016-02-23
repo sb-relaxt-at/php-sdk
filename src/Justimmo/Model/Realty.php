@@ -113,6 +113,8 @@ class Realty
 
     protected $surety = null;
 
+    protected $surety_text = null;
+
     protected $compensation = null;
 
     protected $buildingSubsidies = null;
@@ -174,6 +176,12 @@ class Realty
     protected $terraceArea = null;
 
     protected $garageCount = null;
+
+    protected $garageArea = null;
+
+    protected $parkingCount = null;
+
+    protected $parkingArea = null;
 
     protected $storeRoomCount = null;
 
@@ -238,6 +246,11 @@ class Realty
      * @var null|\DateTime
      */
     protected $updatedAt = null;
+
+    /**
+     * @var string
+     */
+    protected $stair = null;
 
     /**
      * @param null $nutzungsart
@@ -1035,6 +1048,26 @@ class Realty
     }
 
     /**
+     * @param null $kautionText
+     *
+     * @return $this
+     */
+    public function setSuretyText($kautionText)
+    {
+        $this->surety_text = $kautionText;
+
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getSuretyText()
+    {
+        return $this->surety_text;
+    }
+
+    /**
      * @param null $abstand
      *
      * @return $this
@@ -1671,6 +1704,66 @@ class Realty
     }
 
     /**
+     * @param null $garagenFlaeche
+     *
+     * @return $this
+     */
+    public function setGarageArea($garagenFlaeche)
+    {
+        $this->garageArea = $garagenFlaeche;
+
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getGarageArea()
+    {
+        return $this->garageArea;
+    }
+
+    /**
+     * @param null $anzahlStellplaetze
+     *
+     * @return $this
+     */
+    public function setParkingCount($anzahlStellplaetze)
+    {
+        $this->parkingCount = $anzahlStellplaetze;
+
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getParkingCount()
+    {
+        return $this->parkingCount;
+    }
+
+    /**
+     * @param null $stellplatzFlaeche
+     *
+     * @return $this
+     */
+    public function setParkingArea($stellplatzFlaeche)
+    {
+        $this->parkingArea = $stellplatzFlaeche;
+
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getParkingArea()
+    {
+        return $this->parkingArea;
+    }
+
+    /**
      * @param null $anzahlLoggias
      *
      * @return $this
@@ -2279,5 +2372,23 @@ class Realty
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getStair()
+    {
+        return $this->stair;
+    }
 
+    /**
+     * @param string $stair
+     *
+     * @return $this
+     */
+    public function setStair($stair)
+    {
+        $this->stair = $stair;
+
+        return $this;
+    }
 }

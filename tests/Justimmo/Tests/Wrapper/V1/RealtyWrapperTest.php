@@ -80,6 +80,7 @@ class RealtyWrapperTest extends TestCase
         $this->assertContains('ausgestattetes 1 bis 2 Personenbüro', $objekt->getDescription());
         $this->assertNull($objekt->getTier());
         $this->assertEquals(1, $objekt->getDoorNumber());
+        $this->assertEquals(5, $objekt->getStair());
         $this->assertEquals(1030, $objekt->getZipCode());
         $this->assertEquals('Wien', $objekt->getPlace());
         $this->assertEquals('buero_praxen', $objekt->getRealtyType());
@@ -110,6 +111,10 @@ class RealtyWrapperTest extends TestCase
         $this->assertEquals($objekt->getSurfaceArea(), 150);
         $this->assertNull($objekt->getLivingArea());
         $this->assertNull($objekt->getTotalArea());
+        $this->assertEquals($objekt->getGarageCount(), 1);
+        $this->assertEquals($objekt->getGarageArea(), 20.57);
+        $this->assertEquals($objekt->getParkingCount(), 2);
+        $this->assertEquals($objekt->getParkingArea(), 36.85);
 
         $this->assertEquals(450000, $objekt->getPurchasePrice());
         $this->assertEquals(500, $objekt->getAdditionalCharges());
@@ -125,6 +130,7 @@ class RealtyWrapperTest extends TestCase
         $this->assertEquals(1.4, $objekt->getLandRegistration());
         $this->assertEquals("2,16%", $objekt->getContractEstablishmentCosts());
         $this->assertNull($objekt->getSurety());
+        $this->assertEquals($objekt->getSuretyText(), '3 Bruttomonatsmieten');
         $this->assertNull($objekt->getCompensation());
 
         $costs = $objekt->getAdditionalCosts();

@@ -65,6 +65,7 @@ class RealtyWrapper extends AbstractWrapper
         'strasse',
         'tuernummer',
         'hausnummer',
+        'stiege',
     );
 
     protected $preisMapping = array(
@@ -78,6 +79,7 @@ class RealtyWrapper extends AbstractWrapper
         'nettoertrag_monatlich',
         'gesamtmiete_ust',
         'kaution',
+        'kaution_text',
         'abstand',
         'aussen_courtage',
     );
@@ -103,6 +105,9 @@ class RealtyWrapper extends AbstractWrapper
         'balkons_flaeche',
         'terrassen_flaeche',
         'anzahl_garagen',
+        'garagen_flaeche',
+        'anzahl_stellplaetze',
+        'stellplatz_flaeche',
         'anzahl_abstellraum',
         'verbaubare_flaeche',
     );

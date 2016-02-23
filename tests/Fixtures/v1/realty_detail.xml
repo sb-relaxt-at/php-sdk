@@ -25,6 +25,7 @@
             <hausnummer>1</hausnummer>
             <wohnungsnr>1</wohnungsnr>
             <tuernummer>1</tuernummer>
+            <stiege>5</stiege>
             <bundesland>Wien</bundesland>
             <regionaler_zusatz>Am Graben</regionaler_zusatz>
             <land iso_land="AUT"/>
@@ -54,6 +55,7 @@
             <kaufpreis_pro_qm>3000</kaufpreis_pro_qm>
             <aussen_courtage>16.200,00 € inkl. 20% USt.</aussen_courtage>
             <waehrung iso_waehrung="EUR"/>
+            <kaution_text>3 Bruttomonatsmieten</kaution_text>
             <zusatzkosten>
                 <betriebskosten>
                     <name>Betriebskosten</name>
@@ -111,6 +113,10 @@
             <nutzflaeche>150</nutzflaeche>
             <grundstuecksflaeche>150</grundstuecksflaeche>
             <verbaubare_flaeche>355</verbaubare_flaeche>
+            <anzahl_garagen>1</anzahl_garagen>
+            <garagen_flaeche>20.57</garagen_flaeche>
+            <anzahl_stellplaetze>2</anzahl_stellplaetze>
+            <stellplatz_flaeche>36.85</stellplatz_flaeche>
         </flaechen>
         <ausstattung>
             <ausricht_balkon_terrasse NORD="1"/>
