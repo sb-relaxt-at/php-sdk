@@ -4,6 +4,7 @@ namespace Justimmo\Api;
 
 use Justimmo\Cache\CacheInterface;
 use Justimmo\Curl\CurlRequest;
+use Justimmo\Exception\InvalidRequestException;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -338,10 +339,7 @@ class JustimmoApi implements JustimmoApiInterface
             return $content;
         }
 
-        $request = new CurlRequest($url, array(
-            CURLOPT_USERPWD        => $this->username . ':' . $this->password,
-            CURLOPT_HTTPAUTH       => CURLAUTH_ANY,
-        ) + $this->curlOptions);
+        $request = $this->createRequest($url);
 
         if (!ini_get('open_basedir') && filter_var(ini_get('safe_mode'), FILTER_VALIDATE_BOOLEAN) === false) {
             $request->setOption(CURLOPT_FOLLOWLOCATION, true);
@@ -359,6 +357,14 @@ class JustimmoApi implements JustimmoApiInterface
 
         if ($request->getStatusCode() == 404) {
             $this->throwError('Api call not found: ' . $request->getStatusCode(), '\Justimmo\Exception\NotFoundException');
+        }
+
+        if ($request->getStatusCode() >= 400 && $request->getStatusCode() < 500) {
+            $exception = new InvalidRequestException('The Api call returned status code ' . $request->getStatusCode());
+            $exception->setResponse($request->getContent());
+            $this->logger->error($exception->getMessage());
+
+            throw $exception;
         }
 
         if ($request->getStatusCode() != 200) {
@@ -552,5 +558,13 @@ class JustimmoApi implements JustimmoApiInterface
         $this->curlOptions[$key] = $value;
 
         return $this;
+    }
+
+    protected function createRequest($url)
+    {
+        return new CurlRequest($url, array(
+                CURLOPT_USERPWD        => $this->username . ':' . $this->password,
+                CURLOPT_HTTPAUTH       => CURLAUTH_ANY,
+            ) + $this->curlOptions);
     }
 }

@@ -1,3 +1,17 @@
+## 1.0.31
+ * support for salutation and title in realtie inquiries
+ * add JustimmoException interface to catch all sdk related exceptions
+ * add InvalidRequestException for response error code 400 to 499 with error message parsing from API
+
+## 1.0.30
+ * filterByStatusId
+
+## 1.0.29
+ * add properties for precise coordinats (getLatitudePrecise, getLongitudePrecise)
+ 
+## 1.0.28
+ * added purchase_price_per_sqm (getPurchasePricePerSqm), rent_per_sqm (getRentPerSqm) and operating_costs_per_sqm (getOperatingCostsPerSqm) 
+
 ## 1.0.27
  * added surety_text (getSuretyText)
 

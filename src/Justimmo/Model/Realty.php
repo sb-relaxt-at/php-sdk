@@ -28,6 +28,12 @@ class Realty
 
     protected $totalRent = null;
 
+    protected $purchasePricePerSqm = null;
+
+    protected $rentPerSqm = null;
+
+    protected $operatingCostsPerSqm = null;
+
     protected $floorArea = null;
 
     protected $surfaceArea = null;
@@ -84,6 +90,16 @@ class Realty
     protected $latitude = null;
 
     protected $longitude = null;
+
+    /**
+     * @var double
+     */
+    protected $latitudePrecise = null;
+
+    /**
+     * @var double
+     */
+    protected $longitudePrecise = null;
 
     protected $street = null;
 
@@ -2390,5 +2406,101 @@ class Realty
         $this->stair = $stair;
 
         return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getPurchasePricePerSqm()
+    {
+        return $this->purchasePricePerSqm;
+    }
+
+    /**
+     * @param null $purchasePricePerSqm
+     *
+     * @return $this
+     */
+    public function setPurchasePricePerSqm($purchasePricePerSqm)
+    {
+        $this->purchasePricePerSqm = $purchasePricePerSqm;
+
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getRentPerSqm()
+    {
+        return $this->rentPerSqm;
+    }
+
+    /**
+     * @param null $rentPerSqm
+     *
+     * @return $this
+     */
+    public function setRentPerSqm($rentPerSqm)
+    {
+        $this->rentPerSqm = $rentPerSqm;
+
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getOperatingCostsPerSqm()
+    {
+        return $this->operatingCostsPerSqm;
+    }
+
+    /**
+     * @param null $operatingCostsPerSqm
+     *
+     * @return $this
+     */
+    public function setOperatingCostsPerSqm($operatingCostsPerSqm)
+    {
+        $this->operatingCostsPerSqm = $operatingCostsPerSqm;
+
+        return $this;
+    }
+
+    /**
+     * returns the precise longitude of the realty regardless of the  visibility settings of addresses in justimmo
+     *
+     * @return double
+     */
+    public function getLongitudePrecise()
+    {
+        return $this->longitudePrecise;
+    }
+
+    /**
+     * @param double $longitudePrecise
+     */
+    public function setLongitudePrecise($longitudePrecise)
+    {
+        $this->longitudePrecise = $longitudePrecise;
+    }
+
+    /**
+     * returns the precise latitude of the realty regardless of the  visibility settings of addresses in justimmo
+     *
+     * @return double
+     */
+    public function getLatitudePrecise()
+    {
+        return $this->latitudePrecise;
+    }
+
+    /**
+     * @param double $latitudePrecise
+     */
+    public function setLatitudePrecise($latitudePrecise)
+    {
+        $this->latitudePrecise = $latitudePrecise;
     }
 }

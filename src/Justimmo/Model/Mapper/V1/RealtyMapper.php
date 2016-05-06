@@ -47,6 +47,18 @@ class RealtyMapper extends AbstractMapper
                 'property' => 'totalRent',
                 'type'     => 'double',
             ),
+            'kaufpreis_pro_qm'           => array(
+                'property' => 'purchasePricePerSqm',
+                'type'     => 'double',
+            ),
+            'mietpreis_pro_qm'           => array(
+                'property' => 'rentPerSqm',
+                'type'     => 'double',
+            ),
+            'betriebskosten_pro_qm'      => array(
+                'property' => 'operatingCostsPerSqm',
+                'type'     => 'double',
+            ),
             'nutzflaeche'                => array(
                 'property' => 'floorArea',
                 'type'     => 'double',
@@ -305,6 +317,14 @@ class RealtyMapper extends AbstractMapper
                 'property' => 'updatedAt',
                 'type'     => 'datetime',
             ),
+            'geokoordinaten_laengengrad_exakt' => array(
+                'property' => 'longitudePrecise',
+                'type'     => 'double',
+            ),
+            'geokoordinaten_breitengrad_exakt' => array(
+                'property' => 'latitudePrecise',
+                'type'     => 'double',
+            ),
         );
     }
 
@@ -331,6 +351,7 @@ class RealtyMapper extends AbstractMapper
             'SurfaceArea'       => 'grundflaeche',
             'Keyword'           => 'stichwort',
             'FederalStateId'    => 'bundesland_id',
+            'StatusId'          => 'objekt_status_id',
             'Rent'              => 'miete',
             'Buy'               => 'kauf',
             'CreatedAt'         => 'created_at',

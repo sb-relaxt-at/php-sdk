@@ -82,6 +82,9 @@ class RealtyWrapper extends AbstractWrapper
         'kaution_text',
         'abstand',
         'aussen_courtage',
+        'kaufpreis_pro_qm',
+        'mietpreis_pro_qm',
+        'betriebskosten_pro_qm',
     );
 
     protected $flaechenMapping = array(
@@ -258,6 +261,10 @@ class RealtyWrapper extends AbstractWrapper
                 if (array_key_exists('iso_land', $iso)) {
                     $objekt->setCountry((string) $iso['iso_land']);
                 }
+            }
+
+            foreach ($xml->geo->user_defined_simplefield as $simpleField) {
+                $this->mapSimpleField($simpleField, $objekt);
             }
         }
 
