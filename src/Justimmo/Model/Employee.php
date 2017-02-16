@@ -70,6 +70,11 @@ class Employee
     protected $biography = null;
 
     /**
+     * @var null|string
+     */
+    protected $number = null;
+
+    /**
      * @param array $attachments
      *
      * @return $this
@@ -389,5 +394,21 @@ class Employee
         $this->biography = $biography;
 
         return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    /**
+     * @param null|string $number
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
     }
 }
